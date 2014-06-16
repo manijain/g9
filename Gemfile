@@ -32,7 +32,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# gem 'rails_12factor', group: :production
+gem 'rails_12factor', group: :production
 
 gem 'devise'
 
