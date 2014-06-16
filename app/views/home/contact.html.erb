@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-lg-12">
-		<h4 class="text-center">sadd sdahkj jkh jkhasd jkhkjsd kljh asd jkh asd kj h  sa sdasdas <br> sjkhjkh lsjkdh fhj khk jhkjhjksdf dsfkjhkhkj jkhjh</h4>
+		<h4 class="text-center set-fonts">To become the people's and the business community's first and the most preferred choice as their real estate partner and developer via superior performance, integrity and innovation. Scaling new heights of excellence in all that we do, ushering productivity through Transparency, Ethics and Ambition.</h4>
     <% if current_user.try(:is_admin) == true %>
       <p><%= link_to "Show request detail", request_details_path, class: 'btn btn-default pull-right' %></p>
     <% end %>
@@ -10,14 +10,16 @@
 
 <div class="row">
 	<div class="col-lg-6">
-		<h3>Owner / company name </h3><br>
-		<p>address</p><br>
-		<p>phone</p><br>
-		<p>email id</p><br>
+		<h3>Head office </h3><br>
+		<p>G9 Builders & developers</p><br>
+		<p>Dist - Bhilwara </p><br>
+		<p>Rajasthan</p><br>
+    <p>ph# 0123456789</p><br>
 	</div>
 
   <div class="col-lg-4">
     <h3>Submit request for site seen</h3>
+    <hr>
     <%= form_for(@request, url: submit_request_path) do |f| %>
       <%= render 'shared/error_messages' %>
       <div class="form-group">

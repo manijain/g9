@@ -7,13 +7,13 @@
   <% end %>
 </div>
 <div class="masthead">
-  <h3 class="text-muted">Project name</h3>
+  <h3 class="text-muted"><%= link_to image_tag("logo.jpeg", :border => 0, :alt => 'logo', :style => "height:70px;"), root_path %></h3>
+
   <ul class="nav nav-justified">
     <li class="active"><%= link_to "Home", root_path %></li>
-    <li><%= link_to "Property", properties_path %></li>
+    <li><%= link_to "About G9 group", about_path %></li>
+    <li><%= link_to "Project", properties_path %></li>
     <li><%= link_to "Services", service_path %></li>
-    <li><%= link_to "Downloads", "#" %></li>
-    <li><%= link_to "About", about_path %></li>
     <li><%= link_to "Contact", contact_path %></li>
   </ul>
 </div>

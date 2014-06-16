@@ -34,7 +34,30 @@ class PropertiesController < ApplicationController
 	end
 
 	def edit
+    @property = Property.find(params[:id])
+    @property_attachments = @property.property_attachments.all
 	end
+
+  def update
+    @property = Property.find(params[:id])
+    respond_to do |format|
+      if @property.update_attributes(property_params)
+        format.html { redirect_to properties_path, notice: 'Property successfully updated.' }
+        # format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        # format.json { render json: @project.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    Property.destroy(params[:id])
+    respond_to do |format|
+      format.html { redirect_to properties_path, notice: 'Property successfully deleted.' }
+      # format.json { head :no_content }
+    end
+  end
 
 	private
 

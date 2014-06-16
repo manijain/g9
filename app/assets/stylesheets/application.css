@@ -12,6 +12,8 @@
  *= require lightbox
  *= require gritter
  *= require bootstrap
+ *= require owl.carousel
+ *= require owl.theme
  *= require_tree .
  */
 
@@ -91,4 +93,16 @@ body {
     padding-left: 0;
     padding-right: 0;
 }
+}
+
+/* set text fonts */
+.set-fonts {
+  margin-top: 15px;
+  font-family: "Lucida Console", Courier, monospace;
+}
+
+#owl-demo .item img {
+  display: block;
+  width: 100%;
+  height: auto;
 }

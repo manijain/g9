@@ -41,6 +41,8 @@ gem "carrierwave"
 
 gem "gritter", "1.1.0"
 
+gem 'owlcarousel-rails'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

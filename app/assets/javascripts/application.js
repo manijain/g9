@@ -15,4 +15,17 @@
 //= require lightbox-2.6.min
 //= require gritter
 //= require bootstrap
+//= require owl.carousel
 //= require_tree .
+
+
+$(document).ready(function() {
+   $("#owl-demo").owlCarousel({
+    navigation : true,
+    slideSpeed : 300,
+    autoPlay: 3000,
+     
+ 	paginationSpeed : 400,
+	singleItem:true
+   });
+});
