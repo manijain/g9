@@ -1,0 +1,29 @@
+<h1>Listing property_attachments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Avatar</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @property_attachments.each do |property_attachment| %>
+      <tr>
+        <td><%= property_attachment.property_id %></td>
+        <td><%= property_attachment.avatar %></td>
+        <td><%= link_to 'Show', property_attachment %></td>
+        <td><%= link_to 'Edit', edit_property_attachment_path(property_attachment) %></td>
+        <td><%= link_to 'Destroy', property_attachment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Property attachment', new_property_attachment_path %>

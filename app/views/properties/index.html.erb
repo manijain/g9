@@ -1,0 +1,35 @@
+<div class="row">
+	<div class="col-md-6">
+		<h3>Property list</h3>
+	</div>
+
+	<div class="col-md-6">
+		<% if current_user.try(:is_admin) == true %>
+			<p><%= link_to "Add new property", new_property_path, class: 'btn btn-default pull-right', :style => "margin-top:20px" %></p>
+		<% end %>
+	</div>
+</div>
+<hr>
+
+<% @property.each do |property| %>
+	<div class="row">
+		<div class="col-md-3">
+			<p>
+				<% property.property_attachments.take(1).each do |property_img | %>
+  				<%= link_to image_tag(property_img.avatar_url(:thumb).to_s, :alt => 'Profile'), property_img.avatar_url, :title => property.title, :rel => "lightbox", :class => "cursor_zoom_in"  %>
+				<% end %>
+			</p>
+		</div>
+
+		<div class="col-md-6">
+			<p><strong>Title : </strong> <%= property.title %></p><br />
+			<p><strong>Location : </strong><%= property.location %></p><br />
+			<p><strong>Approx Prize : </strong><%= property.approx_prize %></p><br />
+			<p><strong>Status : </strong><%= property.status %></p><br />
+		</div>
+
+		<div class="col-md-3">
+			<p><%= link_to "More Details", property_path(property.id), class: "pull-right", :style => "color: green;" %></p>
+		</div>
+	</div>
+<% end %>

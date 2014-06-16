@@ -1,0 +1,22 @@
+<h4>List of request details</h4><br>
+
+<div class="row">
+	<div class="col-lg-12">
+		<table class= "table table-stripe">
+			<tr>
+				<th width="20%">Name</th>
+				<th width="20%">Email</th>
+				<th width="20%">Phone</th>
+				<th width="40%">Message</th>
+			</tr>
+				<% @request_details.each do |request| %>
+					<tr>
+						<td><%= request.name %></td>
+						<td><%= request.email %></td>
+						<td><%= request.phone %></td>
+						<td><%= request.message %></td>
+					</tr>
+				<% end %>
+		</table>
+	</div>
+</div>

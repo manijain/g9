@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>G9</title>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="container">
+		<%= render :partial => 'layouts/header' %>
+			<%= yield %>
+		<%= render :partial => 'layouts/footer' %>
+
+		<!-- Gritter -->
+		<%= js extend_gritter :position => "bottom_right" %>
+		<% if flash[:notice] %>
+		  <%= js add_gritter(flash[:notice], :image => :success, :nodom_wrap  => true) %>
+		<% elsif flash[:error] %>
+		  <%= js add_gritter(flash[:error], :image => :error, :title => "Error", :nodom_wrap  => true) %>
+		<% end %>
+	</div>
+</body>
+</html>

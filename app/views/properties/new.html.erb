@@ -1,0 +1,60 @@
+<div class="", style="margin-top:50px;">
+<h3> Add new property</h3>
+<hr>
+<%= form_for @property, :html => {:multipart => true} do |f| %>
+  <% if @property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@property.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @property.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="row">
+  <div class="col-md-6">
+    <p>
+      <%= f.label :title %><br />
+      <%= f.text_field :title %>
+    </p>
+
+    <div class="field">
+      <%= f.label :avatar %><br>
+      <%= f.file_field :avatar, :multiple => true, name: "property_attachments[avatar][]" %>
+    </div>
+
+<!-- <p>
+      <%#= f.file_field :image %>
+    </p>
+    <p>
+      <%#= f.label :remote_image_url, "or image URL" %><br />
+      <%#= f.text_field :remote_image_url %>
+    </p> -->
+    
+  </div>
+
+  <div class="col-md-6">
+    <p>
+      <%= f.label :description %><br />
+      <%= f.text_area :description, :style => 'width:350px;height:150px;' %>
+    </p>
+    <p>
+      <%= f.label :location %><br />
+      <%= f.text_field :location %>
+    </p>
+    <p>
+      <%= f.label :approx_prize %><br />
+      <%= f.number_field :approx_prize %>
+    </p>
+    <p>
+      <%= f.label :approx_sale_duration %><br />
+      <%= f.text_field :approx_sale_duration %>
+    </p><br>
+    <p><%= f.submit 'Create Property', :class => 'btn btn-default btn-primary' %></p>
+  </div>
+</div>
+<% end %>
+</div>
