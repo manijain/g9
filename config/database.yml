@@ -6,7 +6,7 @@
 
 development:
   adapter: postgresql
-  database: g9_development
+  database: new_g9_development
   pool: 5
 
 # Warning: The database defined as "test" will be erased and
@@ -15,10 +15,10 @@ development:
 
 test:
   adapter: postgresql
-  database: g9_test
+  database: new_g9_test
   pool: 5
 
 production:
   adapter: postgresql
-  database: g9_production
+  database: new_g9_production
   pool: 5

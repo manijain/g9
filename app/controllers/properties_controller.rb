@@ -2,9 +2,13 @@ class PropertiesController < ApplicationController
 	before_action :must_be_admin, :except => [:index, :show]
 	before_action :need_to_be_login, :except => [:index]
 
-	def index
-		@property = Property.all
-	end
+  def index
+    if params[:search] || params[:min_price] || params[:max_price]
+      @properties = Property.search(params[:search], params[:min_price], params[:max_price]).order("created_at DESC").page params[:page]
+    else
+      @properties = Property.order("created_at DESC").page params[:page]
+    end
+  end
 
 	def new
 		@property = Property.new
@@ -62,7 +66,7 @@ class PropertiesController < ApplicationController
 	private
 
  	def property_params
-    params.require(:property).permit(:title, :remote_image_url, :description, :location, :approx_prize, :approx_sale_duration, property_attachments_attributes: [:id, :property_id, :avatar])
+    params.require(:property).permit(:title, :remote_image_url, :description, :location, :approx_price, :approx_sale_duration, property_attachments_attributes: [:id, :property_id, :avatar])
   end
 
   def must_be_admin

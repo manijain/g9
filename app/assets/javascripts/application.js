@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require lightbox-2.6.min
 //= require gritter
-//= require bootstrap
 //= require owl.carousel
 //= require_tree .
 

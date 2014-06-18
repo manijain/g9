@@ -20,12 +20,12 @@ ActiveRecord::Schema.define(version: 20140616101640) do
     t.string   "title"
     t.text     "description"
     t.string   "location"
-    t.integer  "approx_prize"
+    t.integer  "approx_price"
     t.string   "approx_sale_duration"
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
-    t.string   "status",               default: "Not sold"
   end
 
   create_table "property_attachments", force: true do |t|

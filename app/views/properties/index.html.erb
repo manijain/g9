@@ -1,35 +1,51 @@
 <div class="row">
-	<div class="col-md-6">
-		<h3>Property list</h3>
-	</div>
-
-	<div class="col-md-6">
-		<% if current_user.try(:is_admin) == true %>
-			<p><%= link_to "Add new property", new_property_path, class: 'btn btn-default pull-right', :style => "margin-top:20px" %></p>
-		<% end %>
-	</div>
+   <div class="col-md-12" style="margin-top:15px;">
+    <%= form_tag(properties_path, :method => "get", class: "navbar-form pull-right", :style => "padding:0;", id: "search-form") do %>
+      <div class="form-group">
+        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Properties" %>
+          <%= select_tag :min_price, options_for_select([50000, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000, 500000], params[:min_price]), prompt: "Select Min", class: "form-control" %>
+ 
+          <%= select_tag :max_price, options_for_select([100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000, 500000, 550000, 600000, 650000, 700000, 750000, 800000], params[:max_price]), prompt: "Select Max", class: "form-control" %>
+        <button class="btn btn-default btn-primary" type="submit">Search</i></button>
+      </div>
+    <% end %>
+  </div>
 </div>
-<hr>
 
-<% @property.each do |property| %>
-	<div class="row">
-		<div class="col-md-3">
-			<p>
-				<% property.property_attachments.take(1).each do |property_img | %>
-  				<%= link_to image_tag(property_img.avatar_url(:thumb).to_s, :alt => 'Profile'), property_img.avatar_url, :title => property.title, :rel => "lightbox", :class => "cursor_zoom_in"  %>
-				<% end %>
-			</p>
-		</div>
+<div class="row">
+  <div class="col-md-6">
+    <h3>Property list</h3>
+  </div>
 
-		<div class="col-md-6">
-			<p><strong>Title : </strong> <%= property.title %></p><br />
-			<p><strong>Location : </strong><%= property.location %></p><br />
-			<p><strong>Approx Prize : </strong><%= property.approx_prize %></p><br />
-			<p><strong>Status : </strong><%= property.status %></p><br />
-		</div>
+  <div class="col-md-6">
+    <% if current_user.try(:is_admin) == true %>
+      <p><%= link_to "Add new property", new_property_path, class: 'btn btn-default pull-right', :style => "margin-top:20px" %></p>
+    <% end %>
+  </div>
+</div>
 
-		<div class="col-md-3">
-			<p><%= link_to "More Details", property_path(property.id), class: "pull-right", :style => "font-size:15px;color: green;" %></p>
-		</div>
-	</div>
-<% end %>
+<div class="row">
+  <table class="table table-hover">
+    <tr>
+      <th>Title</th>
+      <th>Location</th>
+      <th>Approx Price</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+      <% @properties.each do |property| %>
+        <tr>
+          <td><%= property.title %></td>
+          <td><%= property.location %></td>
+          <td><%= property.approx_price %></td>
+          <td><%= property.status %></td>
+          <td><%= link_to "More Details", property_path(property.id), class: "pull-right", :style => "font-size:15px;color: green;" %></td>
+        </tr>
+      <% end %>
+  </table>
+  <div>
+    <ul class= "pagination pull-right">
+      <%= paginate @properties %>
+    </ul>
+  </div>
+</div>

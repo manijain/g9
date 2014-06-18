@@ -11,9 +11,9 @@
  *= require_self
  *= require lightbox
  *= require gritter
- *= require bootstrap
  *= require owl.carousel
  *= require owl.theme
+ *= require bootstrap
  *= require_tree .
  */
 

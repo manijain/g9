@@ -22,7 +22,7 @@ class HomeController < ApplicationController
   end
 
   def request_details
-    @request_details = RequestQuote.all
+    @request_details = RequestQuote.all.page params[:page]
   end
 
   def about

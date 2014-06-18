@@ -43,6 +43,10 @@ gem "gritter", "1.1.0"
 
 gem 'owlcarousel-rails'
 
+gem 'kaminari'
+gem 'kaminari-bootstrap', '~> 3.0.1'
+
+# gem 'rails_autocomplete'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
@@ -54,4 +58,4 @@ gem 'owlcarousel-rails'
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
