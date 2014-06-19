@@ -1,6 +1,6 @@
 class PropertiesController < ApplicationController
 	before_action :must_be_admin, :except => [:index, :show]
-	before_action :need_to_be_login, :except => [:index]
+	# before_action :need_to_be_login, :except => [:index, :show]
 
   def index
     if params[:search] || params[:min_price] || params[:max_price]
