@@ -12,10 +12,13 @@
   <h3 class="text-muted"><%= link_to image_tag("logo.jpeg", :border => 0, :alt => 'logo', :style => "height:70px;"), root_path %></h3>
 
   <ul class="nav nav-justified">
-    <li class="active"><%= link_to "Home", root_path %></li>
-    <li><%= link_to "About G9 group", about_path %></li>
-    <li><%= link_to "Project", properties_path %></li>
-    <li><%= link_to "Services", service_path %></li>
-    <li><%= link_to "Contact", contact_path %></li>
+    <li><%= link_to "Home", root_path, :id => "home_tab" %></li>
+    <li><%= link_to "About G9 group", about_path, :id => "about_tab" %></li>
+    <li><%= link_to "Project", properties_path, :id => "project_tab" %></li>
+    <li><%= link_to "Services", service_path, :id => "service_tab" %></li>
+    <li><%= link_to "Contact", contact_path, :id => "contact_tab" %></li>
   </ul>
 </div>
+<script>
+$('#<%= @selected_tab %>').parent().addClass('active');
+</script>

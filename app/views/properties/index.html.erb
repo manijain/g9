@@ -24,28 +24,30 @@
   </div>
 </div>
 
-<div class="row">
-  <table class="table table-hover">
-    <tr>
-      <th>Title</th>
-      <th>Location</th>
-      <th>Approx Price</th>
-      <th>Status</th>
-      <th></th>
-    </tr>
-      <% @properties.each do |property| %>
-        <tr>
-          <td><%= property.title %></td>
-          <td><%= property.location %></td>
-          <td><%= property.approx_price %></td>
-          <td><%= property.status %></td>
-          <td><%= link_to "More Details", property_path(property.id), class: "pull-right", :style => "font-size:15px;color: green;" %></td>
-        </tr>
-      <% end %>
-  </table>
-  <div>
-    <ul class= "pagination pull-right">
-      <%= paginate @properties %>
-    </ul>
+<div class="row" style="background-image:url('/assets/url.jpeg');background-repeat:no-repeat">
+  <div class="col-md-12">
+    <table class="table table-hover">
+      <tr>
+        <th>Title</th>
+        <th>Location</th>
+        <th>Approx Price</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+        <% @properties.each do |property| %>
+          <tr>
+            <td><%= property.title %></td>
+            <td><%= property.location %></td>
+            <td><%= property.approx_price %></td>
+            <td><%= property.status %></td>
+            <td><%= link_to "More Details", property_path(property.id), class: "pull-right", :style => "font-size:15px;color: green;" %></td>
+          </tr>
+        <% end %>
+    </table>
+    <div>
+      <ul class= "pagination pull-right">
+        <%= paginate @properties %>
+      </ul>
+    </div>
   </div>
 </div>

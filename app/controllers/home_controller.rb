@@ -2,10 +2,12 @@ class HomeController < ApplicationController
   before_action :must_be_admin, :only => [:request_details]
 
   def index
+    @selected_tab = "home_tab"
   end
 
   def contact
   	@request = RequestQuote.new
+    @selected_tab = "contact_tab"
   end
 
   def submit_request_quotes
@@ -23,12 +25,15 @@ class HomeController < ApplicationController
 
   def request_details
     @request_details = RequestQuote.all.page params[:page]
+    @selected_tab = "contact_tab"
   end
 
   def about
+    @selected_tab = "about_tab"
   end
 
   def service
+    @selected_tab = "service_tab"
   end
 
   private

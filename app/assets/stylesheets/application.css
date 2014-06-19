@@ -97,12 +97,20 @@ body {
 
 /* set text fonts */
 .set-fonts {
-  margin-top: 15px;
-  font-family: "Lucida Console", Courier, monospace;
+    font-family: 'Muli', sans-serif;
+}
+
+.set-fonts-1 {
+    font-family: 'Raleway', sans-serif;
 }
 
 #owl-demo .item img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.set-background-img {
+    background-image:url('image-melbourne-crown-casino.jpg');
+    background-repeat:no-repeat;
 }

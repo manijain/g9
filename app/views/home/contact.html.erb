@@ -1,25 +1,44 @@
 <div class="row">
 	<div class="col-lg-12">
-		<h4 class="text-center set-fonts">To become the people's and the business community's first and the most preferred choice as their real estate partner and developer via superior performance, integrity and innovation. Scaling new heights of excellence in all that we do, ushering productivity through Transparency, Ethics and Ambition.</h4>
+		<h4 class="text-center set-fonts-1">To become the people's and the business community's first and the most preferred choice as their real estate partner and developer via superior performance, integrity and innovation. Scaling new heights of excellence in all that we do, ushering productivity through Transparency, Ethics and Ambition.</h4>
     <% if current_user.try(:is_admin) == true %>
       <p><%= link_to "Show request detail", request_details_path, class: 'btn btn-default pull-right' %></p>
     <% end %>
 	</div>
 </div>
+<br>
+
+<h3 class="set-fonts" style="color:#428BCA">Contact us</h3>
 <hr>
 
 <div class="row">
-	<div class="col-lg-6">
-		<h3>Head office </h3><br>
-		<p>G9 Builders & developers</p><br>
-		<p>Dist - Bhilwara </p><br>
-		<p>Rajasthan</p><br>
-    <p>ph# 0123456789</p><br>
-	</div>
+	<div class="col-lg-8">
+		<h3 class="set-fonts">Corporate office</h3><br>
+    <address>
+      <strong>G9 Builders & developers</strong><br>
+      Near Railway station<br>
+      Bhilwara, Rajasthan<br>
+      <abbr title="Phone">P:</abbr> (123) 456-7890
+    </address>
+
+    <address>
+      <strong>Full Name</strong><br>
+      <a href="mailto:#">admin@g9builders.com</a>
+    </address>
+  </div>
 
   <div class="col-lg-4">
-    <h3>Submit request for site seen</h3>
-    <hr>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h4>Submit request for site seen</h4>
+      </div>
+      <div class="panel-body">
+<!--       <a href="#" class="list-group-item active">
+        <h4 class="text-center">Submit request for site seen</h4>
+      </a> -->
+
+    
+    
     <%= form_for(@request, url: submit_request_path) do |f| %>
       <%= render 'shared/error_messages' %>
       <div class="form-group">
@@ -37,7 +56,9 @@
       <div class="form-group">
         <%= f.text_area :message, :class => "form-control", :placeholder => "Your Message"  %>
       </div>
-      <%= f.submit 'Submit', :class => "btn btn-default btn-success" %>
+      <%= f.submit 'Submit', :class => "btn btn-default btn-primary pull-right" %>
     <% end %>
+  </div>
+  </div>
   </div>
 </div>

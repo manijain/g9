@@ -1,5 +1,6 @@
 class PropertiesController < ApplicationController
 	before_action :must_be_admin, :except => [:index, :show]
+  before_action :set_tab
 	# before_action :need_to_be_login, :except => [:index, :show]
 
   def index
@@ -82,4 +83,8 @@ class PropertiesController < ApplicationController
       redirect_to new_user_registration_path
     end
   end
+
+  def set_tab
+    @selected_tab = "project_tab"
+  end  
 end
