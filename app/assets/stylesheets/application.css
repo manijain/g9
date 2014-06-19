@@ -111,6 +111,6 @@ body {
 }
 
 .set-background-img {
-    background-image:url('backgrnd.png');
+    background-image:url('/assets/backgrnd.png');
     background-repeat:no-repeat;
 }
