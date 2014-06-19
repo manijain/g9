@@ -13,32 +13,46 @@
 
 <div class="row">
 	<div class="col-lg-8">
-		<h3 class="set-fonts">Corporate office</h3><br>
-    <address>
-      <strong>G9 Builders & developers</strong><br>
-      Near Railway station<br>
-      Bhilwara, Rajasthan<br>
-      <abbr title="Phone">P:</abbr> (123) 456-7890
-    </address>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #map_canvas {
+        width: 400px;
+        height: 300px;
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script>
+      function initialize() {
+        var map_canvas = document.getElementById('map_canvas');
+        var map_options = {
+          center: new google.maps.LatLng(25.34709, 74.635577),
+          zoom: 15,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(map_canvas, map_options)
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+  <body>
+    <div id="map_canvas"></div>
+  </body>
+</html>
 
-    <address>
-      <strong>Full Name</strong><br>
-      <a href="mailto:#">admin@g9builders.com</a>
-    </address>
   </div>
 
   <div class="col-lg-4">
     <div class="panel panel-primary">
       <div class="panel-heading">
-        <h4>Submit request for site seen</h4>
+        <h4>Submit request for site seeing</h4>
       </div>
       <div class="panel-body">
 <!--       <a href="#" class="list-group-item active">
         <h4 class="text-center">Submit request for site seen</h4>
       </a> -->
 
-    
-    
     <%= form_for(@request, url: submit_request_path) do |f| %>
       <%= render 'shared/error_messages' %>
       <div class="form-group">
@@ -60,5 +74,22 @@
     <% end %>
   </div>
   </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-4">
+    <h3 class="set-fonts">Corporate office</h3><br>
+    <address>
+      <strong>G9 Builders & developers</strong><br>
+      Near Railway station<br>
+      Bhilwara, Rajasthan<br>
+      <abbr title="Phone">P:</abbr> (123) 456-7890
+    </address>
+
+    <address>
+      <strong>Full Name</strong><br>
+      <a href="mailto:#">admin@g9builders.com</a>
+    </address>
   </div>
 </div>
