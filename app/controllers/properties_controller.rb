@@ -35,7 +35,7 @@ class PropertiesController < ApplicationController
 
 	def show
 		@property = Property.find(params[:id])
-		@property_attachments = @property.property_attachments.all
+		@property_attachments = @property.property_attachments.find(:all, :limit => 5)
 	end
 
 	def edit

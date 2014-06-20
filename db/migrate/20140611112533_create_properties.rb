@@ -6,7 +6,7 @@ class CreateProperties < ActiveRecord::Migration
     	t.string :location
     	t.integer :approx_price
     	t.string :approx_sale_duration
-        t.string :status
+        t.string :status, :default => "Not Sold"
 
     	t.timestamps
     end

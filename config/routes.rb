@@ -22,11 +22,7 @@ G9::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   
-  resources :properties do
-    collection do
-      get 'autocomplete'
-    end
-  end
+  resources :properties, :path => :projects
 
   # Example resource route with options:
   #   resources :products do
