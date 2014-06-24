@@ -128,3 +128,10 @@ body {
     font-size: 15px;
     font-family: 'Muli', sans-serif;
 }
+
+hr {
+    color: #428BCA;
+    border-style: inset !important;
+    border-width: 5px 0 0 !important;
+    height: 20px !important;
+}
