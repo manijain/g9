@@ -132,6 +132,6 @@ body {
 hr {
     color: #428BCA;
     border-style: inset !important;
-    border-width: 5px 0 0 !important;
-    height: 20px !important;
+    border-width: 3px 0 0 !important;
+    height: 10px !important;
 }
