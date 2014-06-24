@@ -121,3 +121,10 @@ body {
 .font-white {
     color: white !important;
 }
+
+.image-msg {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Muli', sans-serif;
+}
