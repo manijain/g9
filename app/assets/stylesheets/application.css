@@ -135,3 +135,36 @@ hr {
     border-width: 3px 0 0 !important;
     height: 10px !important;
 }
+
+.set-box {
+  box-shadow: 0 0 2px 0px;
+  float: left;
+  margin: 20px 0 17px !important;
+  padding: 15px 5%;
+  width: 25% !important;
+  margin-top:80px;
+  text-align: center;
+}
+
+.comment-text {
+    margin-top: 5px;
+    margin-bottom: 13px;
+    font-family: 'Muli', sans-serif;
+    text-align: justify;
+}
+
+.set-comment-sec {
+    margin-top:15px;
+    background-color:lightgrey;
+    padding:10px;
+}
+
+.set-comment-divider {
+    border-left: 1px solid lightyellow;
+    min-height: 75px!important;
+}
+
+.msg-sec {
+    height:250px !important;
+    margin-top: 10px;
+}

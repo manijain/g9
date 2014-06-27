@@ -16,6 +16,12 @@
 
 		  <div><%= f.submit "Sign in", class: "btn btn-primary" %>
 		  	<%= render "devise/shared/links" %></div>
-		<% end %><hr>
+		<% end %>
+	</div>
+	<div class="col-lg-2">
+	</div>
+	<div class="col-lg-6" style="margin-top:20px;">
+		<%= link_to image_tag('login-facebook.png'), user_omniauth_authorize_path(:facebook) %><br><br>
+		<%= link_to image_tag('google.png'), user_omniauth_authorize_path(:google_oauth2) %>
 	</div>
 </div>

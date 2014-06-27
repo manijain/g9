@@ -2,6 +2,7 @@ class Property < ActiveRecord::Base
   # belongs_to :user
   has_many :property_attachments, dependent: :destroy
   accepts_nested_attributes_for :property_attachments
+  has_many :comments, dependent: :destroy
   
   # mount_uploader :image, ImageUploader
   # belongs_to :property
@@ -11,6 +12,8 @@ class Property < ActiveRecord::Base
   validates :description, length: { maximum: 600 }
   validates :approx_price, numericality: { only_integer: true }
   validates :approx_sale_duration, length: { maximum: 100 }
+
+  after_create :send_property_mail
 
   def self.search(query, min_price, max_price)
     # where(:title, query) -> This would return an exact match of the query
@@ -23,5 +26,9 @@ class Property < ActiveRecord::Base
     elsif max_price.present?
       where("(title like ? OR location like ?) AND approx_price <= ?", "%#{query}%", "%#{query}%", max_price)
     end 
+  end
+
+  def send_property_mail
+    UserMailer.send_new_poperty_message(self).deliver
   end
 end

@@ -34,7 +34,10 @@ end
 
 gem 'rails_12factor', group: :production
 
+gem "letter_opener", :group => :development
+
 gem 'devise'
+gem 'omniauth' 
 
 gem "rmagick"
 gem "carrierwave"
@@ -45,6 +48,9 @@ gem 'owlcarousel-rails'
 
 gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 3.0.1'
+
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 
 # gem 'rails_autocomplete'
 

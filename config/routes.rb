@@ -1,7 +1,8 @@
 G9::Application.routes.draw do
+
   resources :property_attachments
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -22,7 +23,9 @@ G9::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   
-  resources :properties, :path => :projects
+  resources :properties, :path => :projects do
+    resources :comments
+  end
 
   # Example resource route with options:
   #   resources :products do
