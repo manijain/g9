@@ -52,6 +52,8 @@ gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
+gem 'httparty'
+
 # gem 'rails_autocomplete'
 
 # Use ActiveModel has_secure_password

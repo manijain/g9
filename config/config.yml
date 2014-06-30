@@ -1,0 +1,4 @@
+development:
+  HOST_URL : "http://localhost:3000"
+production:
+  HOST_URL : "http://g9-builders.herokuapp.com"

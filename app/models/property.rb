@@ -13,7 +13,7 @@ class Property < ActiveRecord::Base
   validates :approx_price, numericality: { only_integer: true }
   validates :approx_sale_duration, length: { maximum: 100 }
 
-  after_create :send_property_mail
+  after_save :send_property_mail
 
   def self.search(query, min_price, max_price)
     # where(:title, query) -> This would return an exact match of the query

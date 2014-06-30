@@ -24,6 +24,10 @@ class PropertiesController < ApplicationController
       	params[:property_attachments]['avatar'].each do |a|
           @property_attachment = @property.property_attachments.create!(:avatar => a, :property_id => @property.id)
        	end
+        User.all.each do |user|
+          HTTParty.get('http://api.mvaayoo.com/mvaayooapi/MessageCompose?', :query => {:user => 'manijain333@gmail.com:pinkcity',:senderID => 'TEST SMS' ,:receipientno => user.phone, :msgtxt => 'Hello!! we added one New Property. check it out at http://g9-builders.herokuapp.com. Thank you.' })
+        end
+        
         format.html { redirect_to properties_path, notice: 'Property successfully added.' }
         # format.json { render action: 'show', status: :created, location: @project }
       else
