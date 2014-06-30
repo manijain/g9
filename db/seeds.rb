@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-50.times do |i|
-	Property.create!(title: "this is for testing #{i}", location: 'jaipur', approx_price: 200000, approx_sale_duration: '6 month', status: "Not sold", description: "this is for testing.")
-end
+user = User.create!(name: "manish", email: "manish.jain@ireslab.com", password: "manish123", password_confirmation: "manish123", is_admin: true)
+
+# 50.times do |i|
+# 	Property.create!(title: "this is for testing #{i}", location: 'jaipur', approx_price: 200000, approx_sale_duration: '6 month', status: "Not sold", description: "this is for testing.")
+# end
