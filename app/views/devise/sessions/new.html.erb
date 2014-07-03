@@ -1,27 +1,26 @@
-<h2>Sign in</h2>
-
 <div class="row">
-	<div class="col-lg-4">
-		<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+	<h3 class="set-fonts-1">Sign In with G9 Credentials</h2>
+		<div class="col-lg-4 well input-box">
+			<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-		  <div class="form-group"><%= f.label :email, class: "sr-only" %><br />
-		  <%= f.email_field :email, class: "form-control", placeholder: "Email" %></div>
+			  <div class="form-group"><%= f.label :email, class: "sr-only" %><br />
+			  <%= f.email_field :email, class: "form-control", placeholder: "Email" %></div>
 
-		  <div class="form-group"><%= f.label :password, class: "sr-only" %><br />
-		    <%= f.password_field :password, class: "form-control", placeholder: "Password" %></div>
+			  <div class="form-group"><%= f.label :password, class: "sr-only" %><br />
+			    <%= f.password_field :password, class: "form-control", placeholder: "Password" %></div>
 
-		  <% if devise_mapping.rememberable? -%>
-    		<div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  			<% end -%><br>
+			  <% if devise_mapping.rememberable? -%>
+	    		<div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+	  			<% end -%><br>
 
-		  <div><%= f.submit "Sign in", class: "btn btn-primary" %>
-		  	<%= render "devise/shared/links" %></div>
-		<% end %>
-	</div>
-	<div class="col-lg-2">
-	</div>
-	<div class="col-lg-6" style="margin-top:20px;">
-		<%= link_to image_tag('login-facebook.png'), user_omniauth_authorize_path(:facebook) %><br><br>
-		<%= link_to image_tag('google.png'), user_omniauth_authorize_path(:google_oauth2) %>
-	</div>
+			  <div><%= f.submit "Sign in", class: "btn btn-primary" %>
+			  	<%= render "devise/shared/links" %></div>
+			<% end %>
+		</div>
+
+		<div class="col-lg-6 pull-right">
+			<h4>or Sign In with Facebook & Google</h4>
+			<%= link_to image_tag('login-facebook.png'), user_omniauth_authorize_path(:facebook) %><br><br>
+			<%= link_to image_tag('sign-in-with-google.png', class: "set-google-img"), user_omniauth_authorize_path(:google_oauth2) %>
+		</div>
 </div>

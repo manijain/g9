@@ -14,7 +14,6 @@
  *= require owl.carousel
  *= require owl.theme
  *= require bootstrap
- *= require_tree .
  */
 
 .cursor_zoom_in {
@@ -167,4 +166,19 @@ hr {
 .msg-sec {
     height:250px !important;
     margin-top: 10px;
+}
+
+.input-box {
+    background-color: white !important;
+    margin-top: 8px;
+}
+
+#owl-demo .item img {
+    height:400px !important;
+}
+
+.set-google-img {
+  height:72px;
+  width:330px;
+  margin-left:-5px;
 }

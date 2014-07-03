@@ -1,6 +1,11 @@
-<div class="row">
-   <div class="col-md-12" style="margin-top:15px;">
-    <%= form_tag(properties_path, :method => "get", class: "navbar-form pull-right", :style => "padding:0;", id: "search-form") do %>
+<div class="row well input-box">
+  <div class="col-md-5">
+    <% if user_signed_in? %>
+      <%= link_to "ADD NEW PROPERTY", new_property_path, class: 'btn btn-success', :style => "margin-top:5px;" %>
+    <% end %>
+  </div>
+  <div class="col-md-7">
+    <%= form_tag(properties_path, :method => "get", class: "navbar-form", id: "search-form") do %>
       <div class="form-group">
         <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Properties" %>
           <%= select_tag :min_price, options_for_select([50000, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000, 500000], params[:min_price]), prompt: "Select Min", class: "form-control" %>
@@ -14,13 +19,7 @@
 
 <div class="row">
   <div class="col-md-6">
-    <h3>Available Properties</h3>
-  </div>
-
-  <div class="col-md-6">
-    <% if current_user.try(:is_admin) == true %>
-      <p><%= link_to "Add new property", new_property_path, class: 'btn btn-default pull-right', :style => "margin-top:20px" %></p>
-    <% end %>
+    <h3>Check Available Properties</h3>
   </div>
 </div>
 
@@ -40,7 +39,7 @@
             <td><%= property.location %></td>
             <td><%= property.approx_price %></td>
             <td><%= property.status %></td>
-            <td><%= link_to "More Details", property_path(property.id), class: "pull-right", :style => "font-size:15px;color: green;" %></td>
+            <td><%= link_to "More Details", property_path(property.id), class: "btn btn-xs btn-info pull-right font-white" %></td>
           </tr>
         <% end %>
     </table>

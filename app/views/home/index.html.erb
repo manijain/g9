@@ -1,34 +1,35 @@
-<%#= image_tag "banner.jpeg", :style => "width: 100%" %>
-
-<div id="owl-demo" class="owl-carousel owl-theme" style="margin-top:10px">
-  <div class="item"> <%= image_tag "banner.jpeg" %> </div>
-  <div class="item"> <%= image_tag "asdas.jpeg" %> </div>
-  <div class="item"> <%= image_tag "carousel-homepage-background-real-estate-law.jpg" %> </div>
-  <div class="item"> <%= image_tag "home-carousel_02.jpg" %> </div>
-  <div class="item"> <%= image_tag "banner.jpeg" %> </div>
-</div>
-
-<div class="jumbotron">
-  <h1>Builders & Developers</h1>
-    <p class="lead">The corporate philosophy of the <strong>G9 Builders</strong>
-Group has brought a remarkable change in the real estate sector is to give
-maximum happiness to its customers at minimum costs. Maximising this
-concept, the Group is reaching out towards new horizons of growth & success.</p>
-    <p><%= link_to "Get started today", properties_path, class: 'btn btn-lg btn-success font-white' %></p>
-</div>
-
 <div class="row">
-  <div class="col-md-12">
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1415836172029929&version=v2.0";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-    </script>
+<%#= image_tag "banner.jpeg", :style => "width: 100%" %>
+  <div id="owl-demo" class="owl-carousel owl-theme">
+    <div class="item"> <%= image_tag "landlord_page_carousel_en_1.png.jpeg" %> </div>
+    <div class="item"> <%= image_tag "asdas.jpeg", :style => "height:80%;" %> </div>
+    <div class="item"> <%= image_tag "sdss.jpg" %> </div>
+    <div class="item"> <%= image_tag "home-carousel_02.jpg" %> </div>
+    <div class="item"> <%= image_tag "image.carousel.012-1024x537.jpg" %> </div>
+  </div>
 
-    <div class="fb-like" data-href="https://www.facebook.com/G9asdfsfsdfsd" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
+  <div class="jumbotron">
+    <h1>Builders & Developers</h1>
+      <p class="lead">The corporate philosophy of the <strong>G9 Builders</strong>
+  Group has brought a remarkable change in the real estate sector is to give
+  maximum happiness to its customers at minimum costs. Maximising this
+  concept, the Group is reaching out towards new horizons of growth & success.</p>
+      <p><%= link_to "Get started today", properties_path, class: 'btn btn-lg btn-success font-white' %></p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1415836172029929&version=v2.0";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+      </script>
+
+      <div class="fb-like" data-href="https://www.facebook.com/G9asdfsfsdfsd" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
+    </div>
   </div>
 </div>

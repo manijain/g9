@@ -1,22 +1,25 @@
-<div class="pull-right">
-  <% if user_signed_in? %>
-    Welcome <strong><%= current_user.name %></strong>, <%= link_to "Setting", edit_user_registration_path, :style => "color: green;" %> | <%= link_to "Logout", destroy_user_session_path, :method => :delete, :style => "color: green;" %>
-  <% else %>
-    <%= link_to "Register", new_user_registration_path, :style => "color: green;" %> | <%= link_to "Login", new_user_session_path, :style => "color: green;" %>
-  <% end %>
-</div>
+<div class="row">
+  <div class="col-md-12 text-right">
+    <% if user_signed_in? %>
+      Welcome <strong><%= current_user.name.capitalize %></strong>, <%= link_to "Setting", edit_user_registration_path, class: "btn btn-xs btn-info font-white" %> <%= link_to "Logout", destroy_user_session_path, :method => :delete, class: "btn btn-xs btn-warning font-white" %>
+    <% else %>
+      <%= link_to "Register", new_user_registration_path, class: "btn btn-xs btn-primary font-white" %> <%= link_to "Login", new_user_session_path, class: "btn btn-xs btn-info font-white" %>
+    <% end %>
+  </div>
 
-<div class="masthead">
-  <h3 class="text-muted"><%= link_to image_tag("logo.jpeg", :border => 0, :alt => 'logo', :style => "height:70px;"), root_path %></h3>
+  <div class="masthead">
+    <h3 class="text-muted"><%= link_to image_tag("correct-logo.png", :border => 0, :alt => 'logo', :style => "height:70px;"), root_path %>
+    </h3>
 
-  <ul class="nav nav-justified">
-    <li><%= link_to "Home", root_path, :id => "home_tab" %></li>
-    <li><%= link_to "About G9 group", about_path, :id => "about_tab" %></li>
-    <li><%= link_to "Projects", properties_path, :id => "project_tab" %></li>
-    <li><%= link_to "Services", service_path, :id => "service_tab" %></li>
-    <li><%= link_to "Contact", contact_path, :id => "contact_tab" %></li>
-  </ul>
+    <ul class="nav nav-justified">
+      <li><%= link_to "Home", root_path, :id => "home_tab" %></li>
+      <li><%= link_to "About G9 group", about_path, :id => "about_tab" %></li>
+      <li><%= link_to "Projects", properties_path, :id => "project_tab" %></li>
+      <li><%= link_to "Services", service_path, :id => "service_tab" %></li>
+      <li><%= link_to "Contact", contact_path, :id => "contact_tab" %></li>
+    </ul>
+  </div>
+  <script>
+  $('#<%= @selected_tab %>').parent().addClass('active');
+  </script>
 </div>
-<script>
-$('#<%= @selected_tab %>').parent().addClass('active');
-</script>

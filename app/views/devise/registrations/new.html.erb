@@ -1,40 +1,44 @@
-<h2>Create New Account</h2>
 <div class="row">
-	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-		  <%= devise_error_messages! %>
+	<h3 class="set-fonts-1">Signup to get started</h2>
+	<!-- <h4 class="pull-right">or Sign In with Facebook and Google</h2> -->
 
-		<div class="col-lg-4">
-		 <div class="form-group"><%= f.label :name, class: "sr-only" %><br />
-		  <%= f.text_field :name, class: "form-control", placeholder: "Name" %></div>
+		<div class="col-lg-6 well input-box">
+			<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+				  <%= devise_error_messages! %>
 
-		  <div class="form-group"><%= f.label :email, class: "sr-only" %><br />
-		  <%= f.email_field :email, class: "form-control", placeholder: "Email" %></div>
+				 <div class="form-group"><%= f.label :name, class: "sr-only" %><br />
+				  <%= f.text_field :name, class: "form-control", placeholder: "Name" %></div>
 
-		  <div class="form-group"><%= f.label :password, class: "sr-only" %><br />
-		    <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
-		  </div>
+				  <div class="form-group"><%= f.label :email, class: "sr-only" %><br />
+				  <%= f.email_field :email, class: "form-control", placeholder: "Email" %></div>
 
-		  <div class="form-group"><%= f.label :password_confirmation, class: "sr-only" %><br />
-		    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Password confirmation" %></div>
+				  <div class="form-group"><%= f.label :password, class: "sr-only" %><br />
+				    <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+				  </div>
 
-		   <div class="form-group"><%= f.radio_button :gender,'Male', :checked => true %> <label>Male</label> <%= f.radio_button :gender,'Female' %> <label>Female</label></div>
+				  <div class="form-group"><%= f.label :password_confirmation, class: "sr-only" %><br />
+				    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Password confirmation" %></div>
+
+				   <div class="form-group"><strong>Gender <br></strong><%= f.radio_button :gender,'Male', :checked => true %> <label>Male</label> <%= f.radio_button :gender,'Female' %> <label>Female</label></div>
+
+				  <div class="form-group"><%= f.label :address, class: "sr-only" %><br />
+				    <%= f.text_area :address, class: "form-control", placeholder: "Address" %></div>
+
+				   <div class="form-group"><%= f.label :city, class: "sr-only" %><br />
+				    <%= f.text_field :city, class: "form-control", placeholder: "City" %></div>
+
+				    <div class="form-group"><%= f.label :phone, class: "sr-only" %><br />
+				    <%= f.text_field :phone, class: "form-control", placeholder: "Phone#" %></div>
+
+				    <div class="form-group"><%= f.label :occupation, class: "sr-only" %><br />
+				    <%= f.text_field :occupation, class: "form-control", placeholder: "Occupation" %></div>
+				  <div><%= f.submit "SIGN UP", class: "btn btn-lg btn-primary pull-right" %></div>
+			<% end %>
+			<%= render "devise/shared/links" %>
 		</div>
-		<div class="col-lg-2">
+		<div class="col-lg-5 pull-right">
+			<h4>or Sign In with Facebook & Google</h4>
+			<%= link_to image_tag('login-facebook.png'), user_omniauth_authorize_path(:facebook) %><br><br>
+			<%= link_to image_tag('sign-in-with-google.png', class: "set-google-img"), user_omniauth_authorize_path(:google_oauth2) %>
 		</div>
-		<div class="col-lg-4">
-		  <div class="form-group"><%= f.label :address, class: "sr-only" %><br />
-		    <%= f.text_area :address, class: "form-control", placeholder: "Address" %></div>
-
-		   <div class="form-group"><%= f.label :city, class: "sr-only" %><br />
-		    <%= f.text_field :city, class: "form-control", placeholder: "City" %></div>
-
-		    <div class="form-group"><%= f.label :phone, class: "sr-only" %><br />
-		    <%= f.text_field :phone, class: "form-control", placeholder: "Phone#" %></div>
-
-		    <div class="form-group"><%= f.label :occupation, class: "sr-only" %><br />
-		    <%= f.text_field :occupation, class: "form-control", placeholder: "Occupation" %></div>
-		  <div><%= f.submit "Sign up", class: "btn btn-primary pull-right" %></div>
-	<% end %>
-	<%= render "devise/shared/links" %>
-	</div>
 </div>

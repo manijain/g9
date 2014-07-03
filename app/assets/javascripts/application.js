@@ -29,3 +29,37 @@ $(document).ready(function() {
 	singleItem:true
    });
 });
+
+// $(document).on('click',"#show-contact", function() {
+// 	var id = $(this).val
+
+// 	element_id = $('#show-contact').attr('id')
+//   $.ajax({
+//     url: "/properties/show_contact_count",
+//     // beforeSend: function() {
+//     //   $("#ajax-loader-big-for-favourites").show()
+//     //   $('#overlay_div_for_favourites').show()
+//     // },
+//     data: {
+//       id: $("#buy_your_favourites_select option:selected").index()
+//     },
+//     success: function() {
+//       $('#show-contact').hide()
+//       // $("#ajax-loader-big-for-favourites").hide()
+//     }
+//   })
+// })
+
+function fetch_prop_cont(prop_id) {
+	var property_id = prop_id
+  $.ajax({
+    url: "/properties/show_contact_count",
+    data: {
+      id: property_id
+    },
+    complete: function(data) {
+    	//alert(data.responseText);
+      $('#show-contact-detail').html("<span class='label label-primary'>"+ data.responseText +"</a>")
+    }
+  })
+}

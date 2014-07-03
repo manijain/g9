@@ -1,5 +1,5 @@
 class Property < ActiveRecord::Base
-  # belongs_to :user
+  belongs_to :user
   has_many :property_attachments, dependent: :destroy
   accepts_nested_attributes_for :property_attachments
   has_many :comments, dependent: :destroy

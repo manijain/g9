@@ -6,8 +6,12 @@ gem 'rails', '4.0.2'
 
 gem 'pg'
 
+gem 'activeadmin', github: 'gregbell/active_admin'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
+
+# gem "meta_search",    '>= 1.1.0.pre'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -53,6 +57,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
 gem 'httparty'
+# gem 'rails_admin'
 
 # gem 'rails_autocomplete'
 

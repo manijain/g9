@@ -1,5 +1,8 @@
 G9::Application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :property_attachments
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } 
@@ -14,6 +17,8 @@ G9::Application.routes.draw do
   get 'contact' => 'home#contact', as: :contact
   post 'submit' => 'home#submit_request_quotes', as: :submit_request
   get 'request-details' => 'home#request_details', as: :request_details
+
+  get 'properties/show_contact_count' => 'properties#show_contact_count'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

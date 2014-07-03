@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   validates :phone, numericality: { only_integer: true }, :allow_blank => true 
 
   has_many :comments, dependent: :destroy
+  has_many :properties, dependent: :destroy
+  belongs_to :role
 
   after_create :send_welcome_mail
 

@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-2">
   </div>
-  <div class="col-md-8">
+  <div class="col-md-8 well input-box">
     <%= form_for @property, :html => {:multipart => true} do |f| %>
       <% if @property.errors.any? %>
         <div id="error_explanation">
@@ -11,6 +11,7 @@
           <% end %></ul>
         </div>
       <% end %>
+
     <div class="form-group">
       <%= f.label :title %><br />
       <%= f.text_field :title, :class => "form-control" %>

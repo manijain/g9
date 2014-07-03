@@ -1,7 +1,7 @@
 class PropertiesController < ApplicationController
-	before_action :must_be_admin, :except => [:index, :show]
+	before_action :must_be_buyer, :except => [:index, :show, :show_contact_count]
+  before_action :premium_member_plan, :only => [:new, :create]
   before_action :set_tab
-	# before_action :need_to_be_login, :except => [:index, :show]
 
   def index
     if params[:search] || params[:min_price] || params[:max_price]
@@ -12,12 +12,14 @@ class PropertiesController < ApplicationController
   end
 
 	def new
-		@property = Property.new
-		@property.property_attachments.build
+	  @property = Property.new
+	  @property.property_attachments.build
 	end
 
 	def create
 		@property = Property.new(property_params)
+    @property.user_id = current_user.id
+    current_user.update_attributes(:count_property => current_user.count_property + 1)
 
     respond_to do |format|
       if @property.save
@@ -69,23 +71,34 @@ class PropertiesController < ApplicationController
     end
   end
 
+  def show_contact_count
+    if user_signed_in? && current_user.count_property_contact <= 5 
+      @property = Property.find(params[:id])
+      current_user.update_attributes(:count_property_contact => current_user.count_property_contact + 1)
+      msg = "Phone# #{@property.user.phone} : #{5 - current_user.count_property_contact.to_i} property contact left to view" 
+    else
+      msg = "Please Sign In or Buy Membership plan"
+    end
+    render :json => msg
+  end
+
 	private
 
  	def property_params
-    params.require(:property).permit(:title, :remote_image_url, :description, :location, :approx_price, :approx_sale_duration, property_attachments_attributes: [:id, :property_id, :avatar])
+    params.require(:property).permit(:title, :remote_image_url, :description, :location, :approx_price, :approx_sale_duration, :user_id, property_attachments_attributes: [:id, :property_id, :avatar])
   end
 
-  def must_be_admin
-    unless current_user.try(:is_admin) == true
-      flash[:error] = "Access denied"
-      redirect_to root_path
+  def must_be_buyer
+    unless current_user.phone.present?
+      flash[:error] = "Access denied !! You need to complete your profile first"
+      redirect_to edit_user_registration_path(current_user)
     end
   end
 
-  def need_to_be_login
-    unless current_user
-      flash[:notice] = "You need to register first"
-      redirect_to new_user_registration_path
+  def premium_member_plan
+    unless current_user.count_property < 6
+      flash[:notice] = "You have reached your maximumn limit. You need to take premium member plan for publish unlimited property"
+      redirect_to service_path
     end
   end
 
